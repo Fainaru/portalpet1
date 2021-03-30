@@ -1,0 +1,7 @@
+{
+  "name": "portalpet1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
