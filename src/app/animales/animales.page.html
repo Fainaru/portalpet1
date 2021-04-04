@@ -1,0 +1,33 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+    <ion-title>Animales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)='ingreso_mascotas()'>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+
+
+    <ion-item-sliding *ngFor="let animal of animales">
+      <ion-item   [routerLink]="['ingresar',animal.id]" [state]="{ animal: animal }">
+        <ion-avatar slot="start">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Anas_platyrhynchos_qtl1.jpg">
+        </ion-avatar>
+        <ion-label>{{animal.data.nombre}}</ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option  color="danger" (click)='borrar(animal.id)'><ion-icon  slot="icon-only" name="trash-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+  </ion-list>
+</ion-content>

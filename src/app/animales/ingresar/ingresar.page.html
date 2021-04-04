@@ -1,0 +1,55 @@
+<ion-header mode='ios'>
+  <ion-toolbar>
+
+    <ion-buttons slot="start" >
+      <ion-button color="danger" (click)='modalController.dismiss()' *ngIf="!id_mascota">Cerrar</ion-button>
+      <ion-back-button text='Volver' defaultHref='/tabs/tab1/ingresar/'  *ngIf="id_mascota">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>ingresar</ion-title>
+
+    <ion-buttons slot="end" >
+      <ion-button color="success" (click)='ingresar()' *ngIf="!id_mascota">Ingresar</ion-button>
+      <ion-button color="success" (click)='editar()' *ngIf="id_mascota">Editar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-avatar class="Hola">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Anas_platyrhynchos_qtl1.jpg">
+
+  </ion-avatar>
+  <form [formGroup]="ingresarM">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select placeholder="Select One" formControlName="tipo">
+        <ion-select-option value="Canino">Canino</ion-select-option>
+        <ion-select-option value="Felino">Felino</ion-select-option>
+        <ion-select-option value="Ave">Ave</ion-select-option>
+        <ion-select-option value="Reptil">Reptil</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Raza</ion-label>
+      <ion-select placeholder="Select One" formControlName="raza">
+        <ion-select-option value="Pastor Aleman">Pastor Aleman</ion-select-option>
+        <ion-select-option value="Pitbull">Pitbull</ion-select-option>
+        <ion-select-option value="Golden Retriever">Golden Retriever</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label >Cumpleaños</ion-label  >
+      <ion-datetime [monthShortNames] = 'mes' displayFormat="DD-MMM-YYYY" formControlName="edad"></ion-datetime>
+    </ion-item>
+  </form>
+</ion-content>
